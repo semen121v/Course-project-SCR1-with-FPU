@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-//Date        : Mon Jun  1 02:42:11 2020
+//Date        : Tue Jun 30 06:12:16 2020
 //Host        : DESKTOP-74PT5QQ running 64-bit major release  (build 9200)
 //Command     : generate_target sys_pll.bd
 //Design      : sys_pll
@@ -16,7 +16,7 @@ module sys_pll
     locked,
     rst_n);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_IN CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_IN, CLK_DOMAIN sys_pll_clk_in, FREQ_HZ 100000000, PHASE 0.000" *) input clk_in;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 40000000, PHASE 0.0" *) output clk_out;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 25000000, PHASE 0.0" *) output clk_out;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.LOCKED DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.LOCKED, LAYERED_METADATA undef" *) output locked;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_N RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_N, POLARITY ACTIVE_LOW" *) input rst_n;
 
