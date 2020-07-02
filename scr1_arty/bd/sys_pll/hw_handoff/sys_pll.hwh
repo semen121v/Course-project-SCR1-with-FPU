@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jun 30 06:12:19 2020" VIVADOVERSION="2018.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Jul  1 19:11:23 2020" VIVADOVERSION="2018.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty:part0:1.1" DEVICE="7a35ti" NAME="sys_pll" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 

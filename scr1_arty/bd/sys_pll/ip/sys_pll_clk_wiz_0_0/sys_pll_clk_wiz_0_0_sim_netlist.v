@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-// Date        : Tue Jun 30 06:14:11 2020
+// Date        : Wed Jul  1 19:51:19 2020
 // Host        : DESKTOP-74PT5QQ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               C:/Users/Oleg/Documents/GitHub/Course-project-SCR1-with-FPU/scr1_arty/bd/sys_pll/ip/sys_pll_clk_wiz_0_0/sys_pll_clk_wiz_0_0_sim_netlist.v
+//               D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/bd/sys_pll/ip/sys_pll_clk_wiz_0_0/sys_pll_clk_wiz_0_0_sim_netlist.v
 // Design      : sys_pll_clk_wiz_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
