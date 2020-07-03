@@ -1,0 +1,4 @@
+Running: xsim.dir/tesb_ialu_behav/xsimk.exe -simmode gui -wdb tesb_ialu_behav.wdb -simrunnum 0 -socket 54672
+Design successfully loaded
+Design Loading Memory Usage: 8644 KB (Peak: 8644 KB)
+Design Loading CPU Usage: 61 ms

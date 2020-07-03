@@ -1,0 +1,60 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../bd/system/ipshared/ec67/hdl" --include "../../../../../bd/sys_pll/ipshared/4903" --include "../../../../../../../../scr1/src/includes" --include "../../../../../src" --include "D:/Xilinx/Vivado/2018.1/data/xilinx_vip/include" -d "SCR1_ARCH_CUSTOM=1" \
+"../../../../arty_scr1.ip_user_files/bd/sys_pll/ip/sys_pll_clk_wiz_0_0/sys_pll_clk_wiz_0_0_clk_wiz.v" \
+"../../../../arty_scr1.ip_user_files/bd/sys_pll/ip/sys_pll_clk_wiz_0_0/sys_pll_clk_wiz_0_0.v" \
+"../../../../arty_scr1.ip_user_files/bd/system/ip/system_blk_mem_gen_0_0/sim/system_blk_mem_gen_0_0.v" \
+"../../../../arty_scr1.ip_user_files/bd/system/ip/system_jtag_axi_0_0/sim/system_jtag_axi_0_0.v" \
+"../../../../arty_scr1.ip_user_files/bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
+"../../../../arty_scr1.ip_user_files/bd/system/ip/system_auto_pc_2/sim/system_auto_pc_2.v" \
+"../../../../arty_scr1.ip_user_files/bd/system/ip/system_auto_pc_1/sim/system_auto_pc_1.v" \
+"../../../../arty_scr1.ip_user_files/bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
+"../../../../arty_scr1.ip_user_files/bd/system/sim/system.v" \
+"../../../../arty_scr1.ip_user_files/bd/sys_pll/sim/sys_pll.v" \
+
+sv xil_defaultlib  --include "../../../../../bd/system/ipshared/ec67/hdl" --include "../../../../../bd/sys_pll/ipshared/4903" --include "../../../../../../../../scr1/src/includes" --include "../../../../../src" --include "D:/Xilinx/Vivado/2018.1/data/xilinx_vip/include" -d "SCR1_ARCH_CUSTOM=1" \
+"../../../../../../../../scr1/src/pipeline/scr1_pipe_mprf.sv" \
+"../../../../../../../../scr1/src/pipeline/scr1_pipe_lsu.sv" \
+"../../../../../../../../scr1/src/pipeline/scr1_pipe_ifu.sv" \
+"../../../../../../../../scr1/src/pipeline/scr1_pipe_idu.sv" \
+"../../../../../../../../scr1/src/pipeline/scr1_pipe_ialu.sv" \
+"../../../../../../../../scr1/src/pipeline/scr1_pipe_exu.sv" \
+"../../../../../../../../scr1/src/pipeline/scr1_pipe_hdu.sv" \
+"../../../../../../../../scr1/src/pipeline/scr1_pipe_csr.sv" \
+"../../../../../../../../scr1/src/pipeline/scr1_ipic.sv" \
+"../../../../../../../../scr1/src/pipeline/scr1_pipe_tdu.sv" \
+"../../../../../../../../scr1/src/pipeline/scr1_pipe_top.sv" \
+"../../../../../../../../scr1/src/core/primitives/scr1_reset_cells.sv" \
+"../../../../../../../../scr1/src/core/scr1_dm.sv" \
+"../../../../../../../../scr1/src/core/scr1_dmi.sv" \
+"../../../../../../../../scr1/src/core/scr1_scu.sv" \
+"../../../../../../../../scr1/src/core/scr1_tapc_synchronizer.sv" \
+"../../../../../../../../scr1/src/core/scr1_tapc_shift_reg.sv" \
+"../../../../../../../../scr1/src/core/scr1_tapc.sv" \
+"../../../../../../../../scr1/src/core/scr1_core_top.sv" \
+"../../../../../../../../scr1/src/top/scr1_dp_memory.sv" \
+"../../../../../../../../scr1/src/top/scr1_tcm.sv" \
+"../../../../../../../../scr1/src/top/scr1_imem_router.sv" \
+"../../../../../../../../scr1/src/top/scr1_imem_ahb.sv" \
+"../../../../../../../../scr1/src/top/scr1_dmem_router.sv" \
+"../../../../../../../../scr1/src/top/scr1_dmem_ahb.sv" \
+"../../../../../../../../scr1/src/top/scr1_timer.sv" \
+"../../../../../../../../scr1/src/top/scr1_top_ahb.sv" \
+"../../../../../src/arty_scr1.sv" \
+
+verilog xil_defaultlib  --include "../../../../../bd/system/ipshared/ec67/hdl" --include "../../../../../bd/sys_pll/ipshared/4903" --include "../../../../../../../../scr1/src/includes" --include "../../../../../src" --include "D:/Xilinx/Vivado/2018.1/data/xilinx_vip/include" -d "SCR1_ARCH_CUSTOM=1" \
+"../../../../arty_scr1.srcs/sources_1/imports/new/testb_fpu.v" \
+"../../../../arty_scr1.srcs/sources_1/FPU_fcmp_32ns_32neOg.v" \
+"../../../../arty_scr1.srcs/sources_1/FPU_faddfsub_32nsbkb.v" \
+"../../../../arty_scr1.srcs/sources_1/FPU_fmul_32ns_32ncud.v" \
+"../../../../arty_scr1.srcs/sources_1/FPU_sitofp_32ns_3dEe.v" \
+"../../../../arty_scr1.srcs/sources_1/FCLASS.v" \
+"../../../../arty_scr1.srcs/sources_1/FPU.v" \
+
+sv xil_defaultlib  --include "../../../../../bd/system/ipshared/ec67/hdl" --include "../../../../../bd/sys_pll/ipshared/4903" --include "../../../../../../../../scr1/src/includes" --include "../../../../../src" --include "D:/Xilinx/Vivado/2018.1/data/xilinx_vip/include" -d "SCR1_ARCH_CUSTOM=1" \
+"../../../../arty_scr1.srcs/sources_1/testb_ialu.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

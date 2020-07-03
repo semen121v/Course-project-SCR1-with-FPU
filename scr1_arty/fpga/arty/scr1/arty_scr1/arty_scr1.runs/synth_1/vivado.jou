@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Thu Jul  2 01:32:46 2020
+# Process ID: 1424
+# Current directory: D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.runs/synth_1
+# Command line: vivado.exe -log arty_scr1_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source arty_scr1_top.tcl
+# Log file: D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.runs/synth_1/arty_scr1_top.vds
+# Journal file: D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source arty_scr1_top.tcl -notrace

@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../arty_scr1.srcs/sources_1/ip/FPU_ap_fmul_0_max_dsp_32/sim/FPU_ap_fmul_0_max_dsp_32.vhd" \
+
+nosort

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Wed Jul  1 19:58:52 2020
+# Process ID: 7568
+# Current directory: D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.sim/sim_1/behav/xsim/xsim.dir/tesb_ialu_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.sim/sim_1/behav/xsim/xsim.dir/tesb_ialu_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Wed Jul  1 19:58:54 2020...

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Wed Jul  1 19:50:05 2020
+# Process ID: 11764
+# Current directory: D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.runs/sys_pll_clk_wiz_0_0_synth_1
+# Command line: vivado.exe -log sys_pll_clk_wiz_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sys_pll_clk_wiz_0_0.tcl
+# Log file: D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.runs/sys_pll_clk_wiz_0_0_synth_1/sys_pll_clk_wiz_0_0.vds
+# Journal file: D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/arty_scr1/arty_scr1.runs/sys_pll_clk_wiz_0_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source sys_pll_clk_wiz_0_0.tcl -notrace

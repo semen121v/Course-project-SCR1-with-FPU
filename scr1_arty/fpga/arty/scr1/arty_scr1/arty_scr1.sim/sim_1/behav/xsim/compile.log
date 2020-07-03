@@ -1,0 +1,63 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_pipe_mprf.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_pipe_mprf
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_pipe_lsu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_pipe_lsu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_pipe_ifu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_pipe_ifu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_pipe_idu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_pipe_idu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_pipe_ialu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_pipe_ialu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_pipe_exu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_pipe_exu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_pipe_hdu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_pipe_hdu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_pipe_csr.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_pipe_csr
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_ipic.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_ipic
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_pipe_tdu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_pipe_tdu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/pipeline/scr1_pipe_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_pipe_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/core/primitives/scr1_reset_cells.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_reset_buf_cell
+INFO: [VRFC 10-311] analyzing module scr1_reset_sync_cell
+INFO: [VRFC 10-311] analyzing module scr1_reset_buf_qlfy_cell
+INFO: [VRFC 10-311] analyzing module scr1_reset_and2_cell
+INFO: [VRFC 10-311] analyzing module scr1_reset_and3_cell
+INFO: [VRFC 10-311] analyzing module scr1_reset_mux2_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/core/scr1_dm.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_dm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/core/scr1_dmi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_dmi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/core/scr1_scu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_scu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/core/scr1_tapc_synchronizer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_tapc_synchronizer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/core/scr1_tapc_shift_reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_tapc_shift_reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/core/scr1_tapc.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_tapc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/core/scr1_core_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_core_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/top/scr1_dp_memory.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_dp_memory
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/top/scr1_tcm.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_tcm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/top/scr1_imem_router.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_imem_router
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/top/scr1_imem_ahb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_imem_ahb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/top/scr1_dmem_router.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_dmem_router
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/top/scr1_dmem_ahb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_dmem_ahb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/top/scr1_timer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_timer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/scr1/src/top/scr1_top_ahb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scr1_top_ahb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/src/arty_scr1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module arty_scr1_top
+INFO: [VRFC 10-2458] undeclared symbol pll_rst_in_n, assumed default net type wire [D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/src/arty_scr1.sv:111]
+INFO: [VRFC 10-2458] undeclared symbol jtag_srst_n, assumed default net type wire [D:/GitHub/scr1-sdk_orig/fpga/arty/scr1/src/arty_scr1.sv:291]
