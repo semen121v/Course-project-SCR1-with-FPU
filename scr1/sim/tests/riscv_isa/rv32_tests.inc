@@ -48,7 +48,16 @@ rv32_isa_tests += isa/rv32ui/add.S      \
               isa/rv32ui/sub.S          \
               isa/rv32ui/sw.S           \
               isa/rv32ui/xor.S          \
-              isa/rv32ui/xori.S
+              isa/rv32ui/xori.S	\
+              isa/rv32uf/fadd.S	\
+              isa/rv32uf/fclass.S	\
+              isa/rv32uf/fcmp.S	\
+              isa/rv32uf/fcvt.S	\
+              isa/rv32uf/fcvt_w.S	\
+              isa/rv32uf/fdiv.S	\
+              isa/rv32uf/fmadd.S	\
+              isa/rv32uf/fmin.S	\
+              isa/rv32uf/recoding.S
 
 ifneq (,$(findstring m,$(ARCH_lowercase)))
 rv32_isa_tests += isa/rv32um/div.S      \

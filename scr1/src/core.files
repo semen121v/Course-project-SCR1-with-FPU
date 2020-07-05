@@ -19,3 +19,12 @@ core/scr1_core_top.sv
 core/scr1_dm.sv
 core/scr1_dmi.sv
 core/scr1_scu.sv
+fpu/FPU.v
+fpu/FCLASS.v
+fpu/FPU_faddfsub_32nsbkb.v
+fpu/FPU_fcmp_32ns_32neOg.v
+fpu/FPU_fmul_32ns_32ncud.v
+fpu/FPU_sitofp_32ns_3dEe.v
+fpu/ip/FPU_ap_faddfsub_0_full_dsp_32/FPU_ap_faddfsub_0_full_dsp_32.xci
+fpu/ip/FPU_ap_faddfsub_0_full_dsp_32/synth/FPU_ap_faddfsub_0_full_dsp_32.vhd
+

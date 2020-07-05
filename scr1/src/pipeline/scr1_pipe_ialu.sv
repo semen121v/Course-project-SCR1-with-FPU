@@ -20,7 +20,7 @@ module scr1_pipe_ialu (
     // IALU input
     input   logic [`SCR1_XLEN-1:0]          ialu_op1,
     input   logic [`SCR1_XLEN-1:0]          ialu_op2,
-    input   type_scr1_ialu_cmd_sel_e        ialu_cmd,
+    input   type_scr1_ialu_cmd_sel_e /*logic [5:0]*/       ialu_cmd,
     // IALU output
     output  logic [`SCR1_XLEN-1:0]          ialu_res,
     output  logic                           ialu_cmp,
@@ -72,6 +72,8 @@ typedef enum logic [1:0] {
 //-------------------------------------------------------------------------------
 // Local signals declaration
 //-------------------------------------------------------------------------------
+logic [31:0] agg_result_rd_i, agg_result_rd_f, val_funct7, val_funct3;
+logic agg_result_rd_i_ap_vld, agg_result_rd_f_ap_vld, fpuExec;
 
 `ifdef SCR1_RVM_EXT
 type_scr1_ialu_fsm_state                    curr_state;     // Current FSM state
@@ -131,6 +133,123 @@ logic [31:0]                                res32_3;
 logic [31:0]                                res32_3_reg;
 `endif // SCR1_RVM_EXT
 
+//-------------------------------------------------------------------------------
+// Float Point Unit (FPU)
+//-------------------------------------------------------------------------------
+
+FPU FPU (
+//        .ap_clk(clk)
+//        ,.ap_rst(~rst_n)
+        .ap_start(fpuExec)
+//        ,.ap_done(ap_done)
+//        ,.ap_idle(ap_idle)
+//        ,.ap_ready(ap_ready)
+        ,.agg_result_rd_i(agg_result_rd_i)
+        ,.agg_result_rd_i_ap_vld(agg_result_rd_i_ap_vld)
+        ,.agg_result_rd_f(agg_result_rd_f)
+        ,.agg_result_rd_f_ap_vld(agg_result_rd_f_ap_vld)
+//        ,.agg_result_b1(agg_result_b1)
+//        ,.agg_result_b1_ap_vld(agg_result_b1_ap_vld)
+//        ,.agg_result_f(agg_result_f)
+//        ,.agg_result_f_ap_vld(agg_result_f_ap_vld)
+        ,.val_rs1(ialu_op1)
+        ,.val_rs2(ialu_op2)
+        ,.val_i(ialu_op2)
+        ,.val_funct7(val_funct7)
+        ,.val_funct3(val_funct3)
+);
+// FPU Control State Machine
+always_comb begin
+        case (ialu_cmd)
+        
+        SCR1_FPU_CMD_FADD : begin
+            val_funct7    = 0;
+            val_funct3    = 0;
+        end        
+        SCR1_FPU_CMD_FSUB : begin
+            val_funct7    = 4;
+            val_funct3    = 0;
+        end        
+        SCR1_FPU_CMD_FMUL : begin
+            val_funct7    = 8;
+            val_funct3    = 0;
+        end        
+        SCR1_FPU_CMD_FMIN : begin
+            val_funct7    = 20;
+            val_funct3    = 0;
+        end        
+        SCR1_FPU_CMD_FMAX : begin
+            val_funct7    = 20;
+            val_funct3    = 1;
+        end   
+        SCR1_FPU_CMD_FSGNJ : begin
+            val_funct7    = 16;
+            val_funct3    = 0;
+        end              
+        SCR1_FPU_CMD_FSGNJN : begin
+            val_funct7    = 16;
+            val_funct3    = 1;
+        end              
+        SCR1_FPU_CMD_FSGNJX : begin
+            val_funct7    = 16;
+            val_funct3    = 2;
+        end              
+        SCR1_FPU_CMD_FEQ : begin
+            val_funct7    = 16;
+            val_funct3    = 2;
+        end              
+        SCR1_FPU_CMD_FLT : begin
+            val_funct7    = 80;
+            val_funct3    = 1;
+        end              
+        SCR1_FPU_CMD_FLE : begin
+            val_funct7    = 80;
+            val_funct3    = 0;
+        end              
+        SCR1_FPU_CMD_FCVTWS : begin
+            val_funct7    = 80;
+            val_funct3    = 0;
+        end              
+        SCR1_FPU_CMD_FCVTSW : begin
+            val_funct7    = 96;
+            val_funct3    = 1;
+        end              
+        SCR1_FPU_CMD_FCVTWUS : begin
+            val_funct7    = 96;
+            val_funct3    = 0;
+        end              
+        SCR1_FPU_CMD_FCVTSWU : begin
+            val_funct7    = 96;
+            val_funct3    = 1;
+        end
+        SCR1_FPU_CMD_FCLASS : begin
+            val_funct7    = 112;
+            val_funct3    = 1;
+        end
+        default : begin 
+            val_funct7= 0;
+            val_funct3= 0;
+        end
+        endcase
+        fpuExec = (ialu_cmd==SCR1_FPU_CMD_FADD) ||
+                  (ialu_cmd==SCR1_FPU_CMD_FSUB) ||
+                  (ialu_cmd==SCR1_FPU_CMD_FMUL)||
+                  (ialu_cmd==SCR1_FPU_CMD_FMIN)||
+                  (ialu_cmd==SCR1_FPU_CMD_FMAX)||
+                  (ialu_cmd==SCR1_FPU_CMD_FSGNJ)||
+                 (ialu_cmd==SCR1_FPU_CMD_FSGNJN)||
+                 (ialu_cmd==SCR1_FPU_CMD_FSGNJX)||
+                 (ialu_cmd==SCR1_FPU_CMD_FEQ)||
+                 (ialu_cmd==SCR1_FPU_CMD_FLT)||
+                 (ialu_cmd==SCR1_FPU_CMD_FLE)||
+                 (ialu_cmd==SCR1_FPU_CMD_FCVTWS)||
+                 (ialu_cmd==SCR1_FPU_CMD_FCVTSW)||
+                 (ialu_cmd==SCR1_FPU_CMD_FCVTWUS)||
+                 (ialu_cmd==SCR1_FPU_CMD_FCVTSWU)||
+                 (ialu_cmd==SCR1_FPU_CMD_FCLASS);
+
+end  // End FPU Control State Machine
+
 
 `ifdef SCR1_RVM_EXT
 //-------------------------------------------------------------------------------
@@ -147,7 +266,6 @@ always_ff @(posedge clk, negedge rst_n) begin
         end
     end
 end
-
 
 always_comb begin
     next_state = curr_state;
@@ -404,7 +522,7 @@ end
 // Operation result forming
 //-------------------------------------------------------------------------------
 always_comb begin
-    ialu_res    = '0;
+    //ialu_res    = '0;
     ialu_cmp    = 1'b0;
     shft_cmd    = 2'b0;
 `ifdef SCR1_RVM_EXT
@@ -415,7 +533,11 @@ always_comb begin
                    ((ialu_cmd == SCR1_IALU_CMD_REMU)  | (ialu_cmd == SCR1_IALU_CMD_DIVU))};
     ialu_rdy    = 1'b1;
 `endif // SCR1_RVM_EXT
-
+    if (fpuExec) begin  // \E5\F1\EB\E8 \E8\F1\EF\EE\EB\ED\FF\E5\F2\F1\FF \EB\FE\E1\E0\FF \E8\E7 \EA\EE\EC\E0\ED\E4 FPU
+            if      (agg_result_rd_f>32'b0) ialu_res=agg_result_rd_f;
+            else ialu_res=agg_result_rd_i;
+    end
+    else begin
     case (ialu_cmd)
         SCR1_IALU_CMD_AND : begin
             ialu_res    = ialu_op1 & ialu_op2;
@@ -505,7 +627,7 @@ always_comb begin
         end
 `endif // SCR1_RVM_EXT
         default : begin end
-    endcase
+    endcase end
 end
 
 

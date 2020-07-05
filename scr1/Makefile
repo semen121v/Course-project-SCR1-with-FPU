@@ -4,7 +4,7 @@
 
 # PARAMETERS
 
-ARCH ?=IMC
+ARCH ?=I
 IPIC ?=0
 export BUS  ?=AHB
 
@@ -92,20 +92,20 @@ endif
 ifeq (,$(findstring e,$(ARCH_lowercase)))
 ifeq (,$(findstring 0,$(IPIC)))
 # comment this target if you don't want to run the vectored_isr_sample
-TARGETS += vectored_isr_sample
+# TARGETS += vectored_isr_sample
 endif
 
 # comment this target if you don't want to run the riscv_isa
 TARGETS += riscv_isa
 
 # comment this target if you don't want to run the riscv_compliance
-TARGETS += riscv_compliance
+# TARGETS += riscv_compliance
 endif
 
 # comment this target if you don't want to run the coremark
-TARGETS += coremark
+# TARGETS += coremark
 # comment this target if you don't want to run the dhrystone
-TARGETS += dhrystone21
+# TARGETS += dhrystone21
 # comment this target if you don't want to run the hello test
 TARGETS += hello
 
