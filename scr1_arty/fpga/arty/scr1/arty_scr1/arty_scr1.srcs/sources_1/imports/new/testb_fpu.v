@@ -16,8 +16,8 @@ wire   agg_result_b1;
 wire   agg_result_b1_ap_vld;
 wire   agg_result_f;
 wire   agg_result_f_ap_vld;
-reg  [31:0] val_rs1=0, stimulus_rs1 [15:0], stimulus_format_rs1 [1:0], stimulus_class_rs1 [15:0];
-reg  [31:0] val_rs2=0, stimulus_rs2 [15:0];
+reg  [31:0] val_rs1=0, stimulus_rs1 [5:0], stimulus_format_rs1 [1:0], stimulus_class_rs1 [9:0];
+reg  [31:0] val_rs2=0, stimulus_rs2 [5:0];
 reg  [31:0] val_i=0, stimulus_format_rsi [1:0];
 reg  [31:0] val_funct7=0, funct7_array [15:0];
 reg  [31:0] val_funct3=0, funct3_array [15:0];
@@ -25,7 +25,7 @@ reg  [63:0] inst=0, inst_array [15:0];
 reg  [31:0] class_result [9:0], arif_result[5:0][10:0], format_result[5:0][3:0];
 
 integer i=0, k=0, n=0;
-localparam nan=32'h7F800001, minus_nan=32'hFFFFFFFF, zero=32'h00000000, minus_zero=32'h80000000, norm=32'h00800000, minus_norm=32'h80080000,
+localparam nan=32'h7FC00000, minus_nan=32'hFFFFFFFF, zero=32'h00000000, minus_zero=32'h80000000, norm=32'h00800000, minus_norm=32'h80080000,
            inf=32'hFF800000, minus_inf=32'h7F800000, denorm=32'h80000001, minus_denorm=32'h00800000;
 localparam f1=32'h3f800000, f2=32'h40000000, f3=32'h40400000, f4=32'h40800000, f5=32'h40a00000, f6=32'h40c00000;
 localparam f1_5=32'h3fc00000;
@@ -46,19 +46,33 @@ localparam minus=32'h80000000;
 //14 FCVT.S.W
 //15 FCLASS	 
 
+initial begin //2 FMUL
+    arif_result[0][2]=32'hc0c00000;                     
+                                        //stimulus_rs1[0]=f1_5;   //stimulus_rs2[0]=minus+f4;                
+    arif_result[1][2]=zero;           
+                                        //stimulus_rs1[1]=zero;   //stimulus_rs2[1]=minus_zero; 
+    arif_result[2][2]=nan;                  
+                                        //stimulus_rs1[2]=f1;     //stimulus_rs2[2]=nan;        
+    arif_result[3][2]=minus_nan;           
+                                        //stimulus_rs1[3]=f1;     //stimulus_rs2[3]=minus_nan;  
+    arif_result[4][2]=inf;                 
+                                        //stimulus_rs1[4]=f1;     //stimulus_rs2[4]=inf;        
+    arif_result[5][2]=minus_inf;           
+                                        //stimulus_rs1[5]=f1;     //stimulus_rs2[5]=minus_inf;  
+end
 
 initial begin //1 FSUB	
-    arif_result[0][0]=32'h40b00000;                     
+    arif_result[0][1]=32'h40b00000;                     
                                         //stimulus_rs1[0]=f1_5;   //stimulus_rs2[0]=minus+f4;                
-    arif_result[1][0]=zero;           
+    arif_result[1][1]=zero;           
                                         //stimulus_rs1[1]=zero;   //stimulus_rs2[1]=minus_zero; 
-    arif_result[2][0]=nan;                  
+    arif_result[2][1]=nan;                  
                                         //stimulus_rs1[2]=f1;     //stimulus_rs2[2]=nan;        
-    arif_result[3][0]=minus_nan;           
+    arif_result[3][1]=minus_nan;           
                                         //stimulus_rs1[3]=f1;     //stimulus_rs2[3]=minus_nan;  
-    arif_result[4][0]=inf;                 
+    arif_result[4][1]=inf;                 
                                         //stimulus_rs1[4]=f1;     //stimulus_rs2[4]=inf;        
-    arif_result[5][0]=minus_inf;           
+    arif_result[5][1]=minus_inf;           
                                         //stimulus_rs1[5]=f1;     //stimulus_rs2[5]=minus_inf;  
 end
 
@@ -80,10 +94,10 @@ end
 initial begin
     stimulus_rs1[0]=f1_5;
     stimulus_rs1[1]=zero;
-    stimulus_rs1[2]=f1;
-    stimulus_rs1[3]=f1;
-    stimulus_rs1[4]=f1;
-    stimulus_rs1[5]=f1;
+    stimulus_rs1[2]=f2;
+    stimulus_rs1[3]=f2;
+    stimulus_rs1[4]=f2;
+    stimulus_rs1[5]=f2;
     
     stimulus_rs2[0]=minus+f4;
     stimulus_rs2[1]=minus_zero;
@@ -196,8 +210,6 @@ task fpu_task
         val_rs2=rs2;
         val_i=rsi;
         ap_start=1;
-        #2 ap_start=0;
-        #2;
 	end
 endtask
 
@@ -207,8 +219,8 @@ task fpu_format
 	);
 	begin
 	   for (k=0; k < 2; k=k+1) begin
-	       fpu_task(num, stimulus_format_rs1[k],{31'b0, (num==13 || num==14)}, stimulus_format_rsi[k]); 
-	       if (agg_result_rd_i!=format_result[num]) $display("ќшибка исполнени€ команды %s.", inst);
+	       #2 fpu_task(num, stimulus_format_rs1[k],{31'b0, (num==13 || num==14)}, stimulus_format_rsi[k]); 
+	       if (agg_result_rd_i!=format_result[num][k]) $display("Ошибка исполнения команды %s.", inst);
        end
 	end
 endtask
@@ -219,8 +231,8 @@ task fpu_class
 	);
 	begin
 	   for (k=0; k < 10; k=k+1) begin
-	       fpu_task(num, stimulus_class_rs1[k], 0, 0);
-	       if (agg_result_rd_i!=class_result[num]) $display("ќшибка исполнени€ команды %s.", inst);
+	       #2 fpu_task(num, stimulus_class_rs1[k], 0, 0);
+	       if (agg_result_rd_i!=class_result[num]) $display("Ошибка исполнения команды %s.", inst);
        end
 	end
 endtask
@@ -231,9 +243,9 @@ task fpu_arifm
 	);
 	begin
 	   for (k=0; k < 6; k=k+1) begin
-	       fpu_task(num, stimulus_rs1[k], stimulus_rs2[k], 0);
-	          if ((num==8 || num==9 ||num==10) && (agg_result_rd_i!=arifm_result[num]))  $display("ќшибка исполнени€ команды %s.", inst);
-	          else if (agg_result_rd_f!=arifm_result[num]) $display("ќшибка исполнени€ команды %s.", inst);
+	       #2 fpu_task(num, stimulus_rs1[k], stimulus_rs2[k], 0);
+	          if ((num==8 || num==9 ||num==10) && (agg_result_rd_i!=arif_result[k][num]))  $display("Ошибка исполнения команды %s.", inst);
+	          else if (agg_result_rd_f!=arif_result[k][num]) $display("Ошибка исполнения команды %s.", inst);
        end
 	end
 endtask
@@ -253,9 +265,9 @@ for (i=0; i<16; i=i+1)
 end
 
 FPU FPU (
-        .ap_clk(ap_clk)
-        ,.ap_rst(ap_rst)
-        ,.ap_start(ap_start)
+//        .ap_clk(ap_clk)
+//        ,.ap_rst(ap_rst)
+        .ap_start(ap_start)
         ,.ap_done(ap_done)
         ,.ap_idle(ap_idle)
         ,.ap_ready(ap_ready)
